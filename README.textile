@@ -20,4 +20,4 @@ make
 
 h2. Arranque
 
-`perl bin/app.pl`
+@perl bin/app.pl@
