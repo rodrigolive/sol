@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+  <title>Login</title>
+  <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+</head>
+
+<body bgcolor="#FFFFFF" alink="#0000BE">
+  <b>Login</b><br />
+  <br />
+
+  <form method="post" action="/login">
+    <input type="hidden" name="fnid" value="<% session.id %>" />
+
+    <table border="0">
+
+      <tr>
+        <td>usuario:</td>
+        <td><input type="text" name="u" size="20" autocorrect="off" autocapitalize="off" /></td>
+      </tr>
+
+      <tr>
+        <td>contraseña:</td>
+        <td><input type="password" name="p" size="20" /></td>
+      </tr>
+
+    </table><br />
+    <input type="submit"
+          value="login" />
+  </form>
+
+  <br />
+  <fb:login-button onlogin="alert('Authenticated!');"></fb:login-button>  
+  <br />
+  <hr />
+  <b>Create Account</b><br />
+  <br />
+
+  <form method="post" action="/create_user">
+    <input type="hidden" name="fnid" value="<% fnid %>" />
+
+    <table border="0">
+      <tr>
+        <td>username:</td>
+
+        <td><input type="text" name="u" size="20" autocorrect="off" autocapitalize="off" /></td>
+      </tr>
+
+      <tr>
+        <td>password:</td>
+
+        <td><input type="password" name="p" size="20" /></td>
+      </tr>
+    </table><br />
+    <input type="submit"
+          value="create account" />
+  </form>
+</body>
+<script type="text/javascript">
+    FB.init("<% facebook_key %>", "xd_receiver.htm");
+</script>
+</html>
+

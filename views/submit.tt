@@ -1,0 +1,67 @@
+
+      <tr>
+        <td>
+          <form method="post" action="/submit">
+            <input type="hidden" name="fnid" value="BMopvXJQBc" />
+
+            <table border="0">
+              <tr>
+                <td>título</td>
+
+                <td><input type="text" name="title" value="" size="50" /></td>
+              </tr>
+
+              <tr>
+                <td>url</td>
+
+                <td><input type="text" name="url" value="" size="50" /></td>
+              </tr>
+
+              <tr>
+                <td></td>
+
+                <td><b>or</b></td>
+              </tr>
+
+              <tr>
+                <td>text</td>
+
+                <td>
+                <textarea name="text" id="textile" rows="10" cols="50" onKeyUp="do_convert()"></textarea></td>
+              </tr>
+
+              <tr>
+                <td></td>
+
+                <td><input type="submit" value="submit" /></td>
+              </tr>
+
+              <tr style="height:20px">
+                <td></td>
+              </tr>
+
+              <tr>
+                <td></td>
+
+                <td>
+                  Leave url blank to submit a question for discussion. If there is no url, the text (if any) will appear at the top of the
+                  comments page. If there is a url, the text will be ignored.
+
+                  <p>You can also submit via <a href="http://ycombinator.com/bookmarklet.html"><u>bookmarklet</u></a>.</p>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table width="100%" cellspacing="0" cellpadding="1"><tr><td bgcolor="#FF6600"></td> </tr> </table><br />
+          <h4>Previsualización</h4>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <div id="preview"></div>
+        </td>
+      </tr>

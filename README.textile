@@ -1,0 +1,23 @@
+h1. VotaSol
+
+Una plataforma para subir propuestas y votarlas.
+
+h1. Instalación
+
+h2. Requerimientos
+
+* Perl 5.8.8 o superior
+* MongoDB
+* Dancer (framework)
+
+h2. Paquetes de Perl
+
+El siguiente comando instala los paquetes de Perl 
+<code>
+perl Makefile.PL
+make
+</code>
+
+h2. Arranque
+
+`perl bin/app.pl`

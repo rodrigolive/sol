@@ -1,0 +1,94 @@
+
+      <tr>
+        <td>
+          <table border="0">
+            <tr>
+              <td>
+                <center>
+                  <a id="up_2569870" onclick="return vote(this)"
+                      href="vote?for=2569870&amp;dir=up&amp;by=ojosilva&amp;auth=f2ca8a77314dc42a5ac2b5adcf1e6df529fa26e7&amp;whence=%69%74%65%6d%3f%69%64%3d%32%35%36%39%38%37%30"
+                      name="up_2569870"><img src="http://ycombinator.com/images/grayarrow.gif"
+                      border="0"
+                      vspace="3"
+                      hspace="2" /></a>
+                      <span id="down_2569870"></span>
+                </center>
+              </td>
+
+              <td class="title"><a href="item?id=2569870"><% article.title %></a></td>
+            </tr>
+
+            <tr>
+              <td colspan="1"></td>
+
+              <td class="subtext"><span id="score_2569870"><% article.votes %> votos</span> by <a href="user?id=darrennix">darrennix</a> hace <% article.hours %> horas |
+              <a href="/r?fnid=6WGLR0akAx">flag</a> | <a href="item?id=2569870">8 comments</a></td>
+            </tr>
+
+            <tr style="height:2px">
+              <td></td>
+            </tr>
+
+            <tr>
+              <td></td>
+
+              <td>
+                <% article.body %>
+              </td>
+            </tr>
+
+            <tr style="height:10px">
+              <td></td>
+            </tr>
+
+            <tr>
+              <td></td>
+
+              <td>
+                <form method="post" action="/comment">
+                  <input type="hidden" name="fnid" value="<% fnid %>" />
+                  <input type="hidden" name="article" value="<% article.id %>" />
+                  <textarea name="text" rows="6" cols="60"></textarea><br /><br />
+                  <input type="submit" value="comentar" />
+                </form>
+              </td>
+            </tr>
+          </table><br />
+          <br />
+
+          <% FOREACH comment in comments %>
+          <table border="0">
+            <tr>
+              <td>
+                <table border="0">
+                  <tr>
+                    <td><img src="http://ycombinator.com/images/s.gif"
+                         height="1"
+                         width="0" /></td>
+
+                    <td valign="top">
+                      <center>
+                        <a id="up_2570320" onclick="return vote(this)" href= "vote?for=2570320&amp;dir=up&amp;by=ojosilva&amp;auth=1afcb42cce3d6d69edfbfca284aa884970f0180f&amp;whence=%69%74%65%6d%3f%69%64%3d%32%35%36%39%38%37%30"
+                                name="up_2570320"><img src="http://ycombinator.com/images/grayarrow.gif"
+                             border="0"
+                             vspace="3"
+                             hspace="2" /></a><span id="down_2570320"></span>
+                      </center>
+                    </td>
+
+                    <td class="default">
+                      <div style="margin-top:2px; margin-bottom:-10px;">
+                        <span class="comhead"><a href="user?id=latch">latch</a> 5 hours ago | <a href="item?id=2570320">link</a></span>
+                      </div><br />
+                      <span class="comment"><font color="#000000"><% comment.body %></font></span>
+
+                      <p><font size="1"><u><a href=
+                      "reply?id=2570320&amp;whence=%69%74%65%6d%3f%69%64%3d%32%35%36%39%38%37%30">reply</a></u></font></p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+          </table>
+         <% END %>
