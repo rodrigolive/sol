@@ -18,6 +18,15 @@ perl Makefile.PL
 make
 </code>
 
+h2. Ficheros de configuración
+
+Crear y modificar los ficheros de configuración. 
+
+<code>
+cp environments/development.yml.orig environments/development.yml 
+cp environments/production.yml.orig environments/production.yml 
+</code>
+
 h2. Arranque
 
 @perl bin/app.pl@
