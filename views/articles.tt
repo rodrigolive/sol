@@ -12,8 +12,7 @@
                   <td>
                     <center>
                       <a id="up_2570333" onclick="return vote(this)"
-                      href="/vote?for=<% article.id %>&amp;dir=up&amp;by=ojosilva&amp;auth=6c6bd8601e5ce34eb584aeecff30c2c16aceca63&amp;whence=%6e%65%77%73"
-                      name="up_2570333">
+                      href="/vote?for=<% article.id %>&amp;dir=up&amp;by=<% article.user.name %>&amp;auth=6c6bd8601e5ce34eb584aeecff30c2c16aceca63&amp;whence=%6e%65%77%73" name="up_2570333">
                           <img src="http://ycombinator.com/images/grayarrow.gif" border="0" vspace="3" hspace="2" />
                       </a>
                       <span id="down_2570333"></span>
@@ -30,9 +29,13 @@
                   <td colspan="2"></td>
 
                   <td class="subtext"><span id="score_2570333"><% article.votes %> votos</span> by <a href=
-                  "user?id=<% article.user %>"><% article.user %></a> <% article.hours %> hour ago
+                  "user?id=<% article.user.name %>"><% article.user.name %></a> hace <% article.t.val %> <% article.t.name %> 
                   | <a href="/flag?id=<% article.id %>">notificar</a>
-                  | <a href="item?id=<% article.id %>"><% article.comment_count %> comments</a></td>
+                  | <a href="/item?id=<% article.id %>"><% article.comment_count %> comentarios</a>
+                  <% IF user.is_admin %>
+                      | <a href="/del?id=<% article.id %>">borrar</a></td>
+                  <% END %>
+                  </td>
                 </tr>
 
                 <tr style="height:5px">
@@ -46,7 +49,7 @@
             <tr>
               <td colspan="2"></td>
 
-              <td class="title"><a href="/x?fnid=MqVeh9uQKL" rel="nofollow">More</a></td>
+              <td class="title"><a href="/?skip=<% skip %>&fnid=MqVeh9uQKL" rel="nofollow">More</a></td>
             </tr>
 
           </table>

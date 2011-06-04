@@ -15,14 +15,21 @@
                 </center>
               </td>
 
-              <td class="title"><a href="item?id=2569870"><% article.title %></a></td>
+              <td class="title"><a href="item?id=2569870"><% item.title %></a></td>
             </tr>
 
             <tr>
               <td colspan="1"></td>
 
-              <td class="subtext"><span id="score_2569870"><% article.votes %> votos</span> by <a href="user?id=darrennix">darrennix</a> hace <% article.hours %> horas |
-              <a href="/r?fnid=6WGLR0akAx">flag</a> | <a href="item?id=2569870">8 comments</a></td>
+              <td class="subtext"><span id="score_2569870"><% item.votes %> votos</span> by <a href="user?id=<% item.user.name %>"><% item.user.name %></a> hace <% item.t.val %> <% item.t.name %> |
+              <a href="/r?fnid=6WGLR0akAx">flag</a> | <a href="item?id=2569870"><% item.children_count %> comentarios</a>
+              <% IF item.parent_id %>
+                | <a href="/item?id=<% item.parent_id %>">padre</a>
+              <% END %>
+              <% IF user.is_admin %>
+                  | <a href="/del?id=<% item.id %>">borrar</a></td>
+              <% END %>
+              </td>
             </tr>
 
             <tr style="height:2px">
@@ -33,7 +40,7 @@
               <td></td>
 
               <td>
-                <% article.body %>
+                <% item.body %>
               </td>
             </tr>
 
@@ -47,7 +54,7 @@
               <td>
                 <form method="post" action="/comment">
                   <input type="hidden" name="fnid" value="<% fnid %>" />
-                  <input type="hidden" name="article" value="<% article.id %>" />
+                  <input type="hidden" name="item" value="<% item.id %>" />
                   <textarea name="text" rows="6" cols="60"></textarea><br /><br />
                   <input type="submit" value="comentar" />
                 </form>
@@ -56,15 +63,13 @@
           </table><br />
           <br />
 
-          <% FOREACH comment in comments %>
+      <% FOREACH comment in comments %>
           <table border="0">
             <tr>
               <td>
                 <table border="0">
                   <tr>
-                    <td><img src="http://ycombinator.com/images/s.gif"
-                         height="1"
-                         width="0" /></td>
+                    <td><img src="http://ycombinator.com/images/s.gif" height="1" width="<% comment.level * 40 %>" /></td>
 
                     <td valign="top">
                       <center>
@@ -78,12 +83,19 @@
 
                     <td class="default">
                       <div style="margin-top:2px; margin-bottom:-10px;">
-                        <span class="comhead"><a href="user?id=latch">latch</a> 5 hours ago | <a href="item?id=2570320">link</a></span>
+                        <span class="comhead">
+                            <a href="user?id=<% comment.user.name %>"><% comment.user.name %></a>hace <% comment.t.val %> <% comment.t.name %> | <a href="item?id=<% comment.id %>">enlace</a>
+                            <% IF session.username == comment.user.name %>
+                                | <a href="comment/<% comment.id %>">edit</a>
+                            <% END %>
+                          <% IF user.is_admin %>
+                              | <a href="/del?id=<% comment.id %>">borrar</a></td>
+                          <% END %>
+                        </span>
                       </div><br />
-                      <span class="comment"><font color="#000000"><% comment.body %></font></span>
+                      <a href="#<% comment.id %>"></a><span class="comment"><font color="#000000"><% comment.body %></font></span>
 
-                      <p><font size="1"><u><a href=
-                      "reply?id=2570320&amp;whence=%69%74%65%6d%3f%69%64%3d%32%35%36%39%38%37%30">reply</a></u></font></p>
+                      <p><font size="1"><u><a href="reply?id=<% comment.id %>">responder</a></u></font></p>
                     </td>
                   </tr>
                 </table>
@@ -91,4 +103,4 @@
             </tr>
 
           </table>
-         <% END %>
+     <% END %>

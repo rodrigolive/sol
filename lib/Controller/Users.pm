@@ -9,8 +9,12 @@ get '/user' => sub {
     };
 };
 
-get '/logou' => sub {
+get '/logout' => sub {
+    session->destroy;
+    #set_flash 'Logged out';
+    redirect '/';
 };
+
 get '/login' => sub {
     debug "------------------ID = " . session->{id};
     template 'login' => {
@@ -24,6 +28,7 @@ post '/create_user' => sub {
     my $user = User->new( name=>params->{u}, password=>params->{p} );
     $user->save;
     session->{username} = $user->name;
+    session->{userid} = $user->_id ."";
     redirect '/';
 };
 
@@ -34,6 +39,7 @@ post '/login' => sub {
     die "Invalid password" unless $user->check( params->{p} );
     session user => { map { $_ => $user->{$_} } qw/_id email/ }; 
     session username => $user->name;
+    session userid => $user->_id . "";
     redirect '/';
 };
 

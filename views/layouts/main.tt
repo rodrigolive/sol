@@ -48,7 +48,7 @@
     !window.jQuery && document.write('<script type="text/javascript" src="<% request.uri_base %>/javascripts/jquery.js"><\/script>')
 /* ]]> */</script>
 
-  <title>Vota Sol</title>
+  <title>Participa Sol</title>
 </head>
 
 <body>
@@ -59,11 +59,12 @@
           <table border="0" cellpadding="0" cellspacing="0" width="100%" style=
           "padding:2px">
             <tr>
-              <td style="width:18px;padding-right:4px"><a href="http://ycombinator.com">
-              <img src="/images/votasol.png" width="18" height="18" style="border:1px #ffffff solid;" /> </a></td>
+              <td style="width:18px;padding-right:4px">
+                <a href="http://ycombinator.com"><img src="/images/votasol.png" width="18" height="18" style="border:1px #ffffff solid;" /> </a>
+              </td>
 
               <td style="line-height:12pt; height:10px;">
-                <span class="pagetop"><b><a href="/">Vota Sol</a></b>
+                <span class="pagetop"><b><a href="/">Participasol</a></b>
                     <img src= "http://ycombinator.com/images/s.gif" height="1" width="10" />
                 <a href="newest">reciente</a>
               | <a href="threads?id=<% user.name %>">hilos</a>
@@ -72,7 +73,7 @@
 
               <td style="text-align:right;padding-right:4px;">
                 <% IF session.username %>
-                    <span class="pagetop"><a href="user?id=<% session.username %>"><% session.username %></a> &nbsp;(44)&nbsp;|&nbsp;
+                    <span class="pagetop"><a href="user?id=<% session.username %>"><% session.username %></a> &nbsp;(<% user.karma %>)&nbsp;|&nbsp;
                   <a href="/logout?fnid=<% sessionid %>">logout</a></span>
                 <% ELSE %>
                     <span class="pagetop"><a href="/login?fnid=<% session.id %>">Login</a></span>
@@ -107,8 +108,7 @@
             | <a href="http://ycombinator.com/bookmarklet.html">Bookmarklet</a>
             | <a href="http://ycombinator.com/newsguidelines.html">Guidelines</a>
             | <a href="http://ycombinator.com/newsfaq.html">FAQ</a>
-            | <a href=
-            "http://ycombinator.com/newsnews.html">News News</a>
+            | <a href="http://ycombinator.com/newsnews.html">News News</a>
             | <a href="item?id=363">Feature Requests</a>
             | <a href="http://ycombinator.com">Y Combinator</a>
             | <a href="http://ycombinator.com/apply.html">Apply</a>

@@ -9,6 +9,7 @@ has_one 'karma'    => 'Num', default=>0;
 has_one 'about'    => 'Any';
 has_one 'password' => 'Str', required => 1;
 has_one 'email'    => 'Str';
+has_one 'is_admin'    => 'Bool', default=>0;
 has_one 'created_on' => 'DateTime', default=>sub { DateTime->now };
 has_one 'last_login' => 'DateTime';
 has_one 'registrar' => 'Any', default=>'local';  # local, facebook, ...
